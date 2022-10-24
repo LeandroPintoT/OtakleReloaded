@@ -2,23 +2,34 @@
   "name": "otakle",
   "version": "0.1.0",
   "private": true,
+  "description": "## Project setup ``` npm install ```",
+  "author": "Signus",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "main": "babel.config.js",
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "axios": "^1.1.3",
+    "bootstrap": "^5.2.2",
+    "bootstrap-vue-3": "^0.3.12",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.2.41"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.13",
-    "@vue/cli-plugin-eslint": "~4.5.13",
-    "@vue/cli-service": "~4.5.13",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/preset-env": "^7.19.4",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "@vue/compiler-sfc": "^3.2.41",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0"
+    "eslint": "^8.26.0",
+    "eslint-plugin-vue": "^9.6.0",
+    "eslint-webpack-plugin": "^3.2.0"
   },
   "eslintConfig": {
     "root": true,
@@ -30,7 +41,7 @@
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@babel/eslint-parser"
     },
     "rules": {}
   },
@@ -38,5 +49,9 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "overrides": {
+    "autoprefixer": "10.4.5"
+  },
+  "type": "module"
 }
