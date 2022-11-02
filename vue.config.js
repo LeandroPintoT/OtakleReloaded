@@ -19,5 +19,5 @@ export default defineConfig({
                 '@ajs': resolve(__dirname, 'src/assets/js'),
             },
         },
-    }
+    },
 })

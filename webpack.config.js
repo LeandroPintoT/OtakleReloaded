@@ -17,4 +17,12 @@ module.exports = {
     externals: {
         vue: "Vue",
     },
+    module: {
+        rules: [
+            {
+                test: /\.txt$/i,
+                use: 'raw-loader',
+            },
+        ],
+    },
 };

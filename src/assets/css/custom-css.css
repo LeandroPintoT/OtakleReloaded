@@ -1,3 +1,89 @@
+:root {
+    --color-fondo: #343845;
+}
+
 body {
-    background-color: #121213;
+    background-color: var(--color-fondo) !important;
+    color: lightgray !important;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+#app {
+    margin-top: 10px !important;
+    color: lightgray !important;
+}
+
+.contenedor {
+    height: 40vh;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.modalCustom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: lightgray;
+    pointer-events: auto;
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: var(--bs-modal-border-radius);
+    outline: 0;
+    background-color: var(--color-fondo);
+}
+
+.modalHeaderCustom {
+    text-align: center;
+}
+
+.modalHeaderCustom h2 {
+    width: 100%;
+}
+
+.filaIntentos {
+    align-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuadroIntento {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border: 1px solid white;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.siguienteLetra {
+    border: 3px solid pink !important;
+}
+
+.cuadroIntentoEnter {
+    width: 70px;
+    height: 50px;
+    font-size: 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 5px;
+    display:table;
+    cursor: pointer;
+}
+
+.letraCorrecta {
+    background-color: #25532f;
+}
+
+.letraCasi {
+    background-color: #E4A81D;
+}
+
+.letraIncorrecta {
+    background-color: #474747;
 }
