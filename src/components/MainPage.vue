@@ -105,23 +105,36 @@ export default {
             })
             let palabra = letras.join('')
             let respuesta = this.resp[1].toLowerCase()
+
+            letras.forEach((letra, i) => {
+                let count = (respuesta.match(new RegExp(letra, 'g')) || []).length
+                let encontrado = 0
+                let tmp = respuesta
+                if (count == 0) {
+                    document.getElementById("cuadro" + this.idFila + i).classList.add('letraIncorrecta')
+                    return
+                }
+                while (tmp.indexOf(letra) > -1) {
+                    if (respuesta.indexOf(letra) > -1) {
+                        encontrado++
+                        if (encontrado > count) {
+                            break
+                        }
+                        if (respuesta.indexOf(letra) == palabra.toLowerCase().indexOf(letra)) {
+                            document.getElementById("cuadro" + this.idFila + i).classList.add('letraCorrecta')
+                        } else {
+                            document.getElementById("cuadro" + this.idFila + i).classList.add('letraCasi')
+                        }
+                    }
+                    tmp = tmp.slice(respuesta.indexOf(letra), respuesta.length - 1)
+                }
+            });
+            
             if (palabra == respuesta) {
                 this.respuestaCorrecta = true
                 this.abreModalRespuesta()
                 return
             }
-
-            letras.forEach((letra, i) => {
-                if (respuesta.indexOf(letra) > -1) {
-                    if (respuesta.indexOf(letra) == palabra.toLowerCase().indexOf(letra)) {
-                        document.getElementById("cuadro" + this.idFila + i).classList.add('letraCorrecta')
-                    } else {
-                        document.getElementById("cuadro" + this.idFila + i).classList.add('letraCasi')
-                    }
-                } else {
-                    document.getElementById("cuadro" + this.idFila + i).classList.add('letraIncorrecta')
-                }
-            });
             this.idFila++
             this.idColumna = 0
             document.getElementById("cuadro" + this.idFila + this.idColumna).classList.add('siguienteLetra')
