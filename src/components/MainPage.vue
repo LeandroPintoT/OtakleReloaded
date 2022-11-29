@@ -99,45 +99,60 @@ export default {
         },
 
         clickEnter() {
+            // obtiene las letras ingresadas y las convierte en un string
             let letras = []
             Array.from(document.querySelectorAll('[id^="cuadro' + this.idFila + '"]')).forEach(elem => {
                 letras.push(elem.children[0].innerText.toLowerCase())
             })
+
             let palabra = letras.join('')
             let respuesta = this.resp[1].toLowerCase()
+            
+            if (palabra.length == respuesta.length) {
+                let dic = {}
 
-            letras.forEach((letra, i) => {
-                let count = (respuesta.match(new RegExp(letra, 'g')) || []).length
-                let encontrado = 0
-                let tmp = respuesta
-                if (count == 0) {
-                    document.getElementById("cuadro" + this.idFila + i).classList.add('letraIncorrecta')
+                // busca las posiciones de cada letra
+                letras.forEach((letra) => {
+                    if (!(letra in dic)) {
+                        var regex = (new RegExp(letra, 'gi')), result, indices = [];
+                        while ( (result = regex.exec(respuesta)) ) {
+                            indices.push(result.index)
+                        }
+                        dic[letra] = { cant: (respuesta.match(new RegExp(letra, 'g')) || []).length, pos: indices, checkeados: 0 }
+                    }
+                });
+                // colorea las letras grises y verdes
+                for (let i in palabra) {
+                    if (palabra[i] in dic && dic[palabra[i]].cant > 0) {
+                        if (dic[palabra[i]].pos.includes(parseInt(i))) {
+                            dic[palabra[i]].checkeados++
+                            document.getElementById("cuadro" + this.idFila + i).classList.add('letraCorrecta')
+                        }
+                    } else {
+                        document.getElementById("cuadro" + this.idFila + i).classList.add('letraIncorrecta')
+                    }
+                }
+
+                // colorea las letras amarillas
+                for (let i in palabra) {
+                    if (palabra[i] in dic && dic[palabra[i]].checkeados < dic[palabra[i]].pos.length) {
+                        document.getElementById("cuadro" + this.idFila + i).classList.add('letraCasi')
+                        dic[palabra[i]].checkeados++
+                    }
+                }
+
+                if (palabra == respuesta) {
+                    this.respuestaCorrecta = true
+                    this.abreModalRespuesta()
                     return
                 }
-                while (tmp.indexOf(letra) > -1) {
-                    if (respuesta.indexOf(letra) > -1) {
-                        encontrado++
-                        if (encontrado > count) {
-                            break
-                        }
-                        if (respuesta.indexOf(letra) == palabra.toLowerCase().indexOf(letra)) {
-                            document.getElementById("cuadro" + this.idFila + i).classList.add('letraCorrecta')
-                        } else {
-                            document.getElementById("cuadro" + this.idFila + i).classList.add('letraCasi')
-                        }
-                    }
-                    tmp = tmp.slice(respuesta.indexOf(letra), respuesta.length - 1)
-                }
-            });
-            
-            if (palabra == respuesta) {
-                this.respuestaCorrecta = true
-                this.abreModalRespuesta()
-                return
+
+                this.idFila++
+                this.idColumna = 0
+                document.getElementById("cuadro" + this.idFila + this.idColumna).classList.add('siguienteLetra')
+            } else {
+                console.log("xD")
             }
-            this.idFila++
-            this.idColumna = 0
-            document.getElementById("cuadro" + this.idFila + this.idColumna).classList.add('siguienteLetra')
         },
         
         clickBorrar() {
