@@ -5,6 +5,9 @@ import * as url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig({
+    publicPath: process.env.NODE_ENV === 'production'
+                ? '/OtakleReloaded/'
+                : '/',
     "transpileDependencies": [
         "vuetify"
     ],
@@ -17,6 +20,7 @@ export default defineConfig({
                 '@c': resolve(__dirname, 'src/components'),
                 '@a': resolve(__dirname, 'src/assets'),
                 '@ajs': resolve(__dirname, 'src/assets/js'),
+                '@pub': resolve(__dirname, 'public')
             },
         },
     },

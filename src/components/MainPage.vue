@@ -61,7 +61,7 @@
 
 <script>
 //import axios from 'axios'
-import animeNamesFull from '!raw-loader!@a/animeNamesFull.txt';
+import animeNamesFull from '!raw-loader!@pub/animeNamesFull.txt';
 import Modal from '@c/Modal'
 import ctes from '@a/js/ctes'
 import { useToast } from "vue-toastification"
