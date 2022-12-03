@@ -16,7 +16,8 @@
     "bootstrap": "^5.2.2",
     "bootstrap-vue-3": "^0.3.12",
     "core-js": "^3.6.5",
-    "vue": "^3.2.41"
+    "vue": "^3.2.41",
+    "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
