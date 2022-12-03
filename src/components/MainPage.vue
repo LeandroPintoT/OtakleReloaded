@@ -3,6 +3,7 @@
         <h1>Otakle</h1>
         <h5>An anime character Wordle!</h5>
 
+        <!-- cuadros respuesta -->
         <div class="contenedor">
             <div class="filaIntentos" v-bind:key="'fila-intentos-' + i" v-for="i in range(CTES.INTENTOS_MAX)">
                 <div class="cuadroIntento" :id="'cuadro' + i + j" v-bind:key="'cuadro-' + j" v-for="j in range(resp[1].length)">
@@ -10,7 +11,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- teclado -->
         <div>
             <div class="filaIntentos" v-bind:key="'fila-keys-' + i" v-for="i in range(qwerty.split(',').length-1)">
                 <div class="cuadroIntento" :id="qwerty.split(',')[i][j]" v-bind:key="'cuadro-key-' + j" v-for="j in range(qwerty.split(',')[i].length)" @click="clickLetra(qwerty.split(',')[i][j])">
@@ -33,7 +34,7 @@
         <!-- Modals -->
         <Modal :tipo="CTES.IMG" nofooter aria-hidden="true" id="modalRespuesta" ref="modal_respuesta">
             <template #header>
-                <h1 class="headerResp">{{ respuestaCorrecta ? "Wonderfull!" : "Lamentable..." }}</h1>
+                <h1 class="headerResp">{{ respuestaCorrecta ? "Wonderful!" : "Lamentable..." }}</h1>
             </template>
             <template #body>
                 <br>
