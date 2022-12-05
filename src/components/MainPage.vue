@@ -168,9 +168,10 @@ export default {
                                 dic[letra] = { cant: (respuesta.match(new RegExp(letra, 'g')) || []).length, pos: indices, checkeados: 0 }
                             }
                         });
+                        console.log(dic)
                         // colorea las letras grises y verdes
                         for (let i in palabra) {
-                            if (palabra[i] in dic && dic[palabra[i]].cant > 0) {
+                            if (palabra[i] in dic && dic[palabra[i]].cant > 0 && dic[palabra[i]].checkeados < dic[palabra[i]].pos.length) {
                                 if (dic[palabra[i]].pos.includes(parseInt(i))) {
                                     dic[palabra[i]].checkeados++
                                     document.getElementById("cuadro" + this.idFila + i).classList.add('letraCorrecta')
@@ -185,21 +186,34 @@ export default {
         
                         // colorea las letras amarillas
                         for (let i in palabra) {
-                            if (palabra[i] in dic && dic[palabra[i]].checkeados < dic[palabra[i]].pos.length) {
+                            let inDic = palabra[i] in dic
+                            let todosCheckeados = dic[palabra[i]].checkeados >= dic[palabra[i]].pos.length
+                            let noPintado = !(document.getElementById("cuadro" + this.idFila + i).classList.contains('letraCorrecta') || document.getElementById("cuadro" + this.idFila + i).classList.contains('letraCasi'))
+                            console.log("letra: " + palabra[i])
+                            console.log("inDic: " + inDic)
+                            console.log("todosCheckeados: " + todosCheckeados)
+                            console.log("noPintado: " + noPintado)
+                            if (inDic && !todosCheckeados) {
                                 if (!document.getElementById("cuadro" + this.idFila + i).classList.contains('letraCorrecta'))
                                     document.getElementById("cuadro" + this.idFila + i).classList.add('letraCasi')
                                 if (!document.getElementById(palabra[i]).classList.contains('letraCorrecta')) {
-                                    document.getElementById(palabra[i]).classList.add('letraCasi')
+                                    document.getElementById("cuadro" + this.idFila + i).classList.add('letraCasi')
                                 }
                                 dic[palabra[i]].checkeados++
+                            } else {
+                                if (noPintado) {
+                                    console.log("letra else: " + palabra[i])
+                                    document.getElementById("cuadro" + this.idFila + i).classList.add('letraIncorrecta')
+                                }
                             }
-                            else if (palabra[i] in dic && dic[palabra[i]].checkeados >= dic[palabra[i]].pos.length && !(document.getElementById("cuadro" + this.idFila + i).classList.contains('letraCorrecta')) || document.getElementById("cuadro" + this.idFila + i).classList.contains('letraCasi')) {
+                            /*else if (inDic && todosCheckeados && noPintado) {
+                                console.log("ENTROOOOOOOOOOOOOOOOOOOOOOOOO")
                                 if (!document.getElementById("cuadro" + this.idFila + i).classList.contains('letraCorrecta'))
                                     document.getElementById("cuadro" + this.idFila + i).classList.add('letraCasi')
                                 if (!(document.getElementById(palabra[i]).classList.contains('letraCorrecta') || document.getElementById(palabra[i]).classList.contains('letraCasi'))) {
                                     document.getElementById(palabra[i]).classList.add('letraIncorrecta')
                                 }
-                            }
+                            }*/
                         }
 
                         if (palabra == respuesta) {

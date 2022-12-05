@@ -382,3 +382,6 @@
 381,Sarada,Sarada Uchiha,https://cdn.myanimelist.net/images/characters/5/292448.jpg
 382,Kurobe,Kurobe,https://cdn.myanimelist.net/images/characters/12/381145.jpg
 383,Tamako,Tamako Nobi,https://cdn.myanimelist.net/images/characters/12/220269.jpg
+384,Garou,Garou,https://cdn.myanimelist.net/images/characters/9/381817.jpg
+385,Kirito,Kirito (Kirigaya Kazuto),https://cdn.myanimelist.net/images/characters/3/241591.jpg
+386,Akemi,Homura Akemi,https://cdn.myanimelist.net/images/characters/2/379021.jpg
