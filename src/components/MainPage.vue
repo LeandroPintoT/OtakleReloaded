@@ -63,11 +63,12 @@
 <script>
 //import axios from 'axios'
 import animeNamesFull from '!raw-loader!@pub/animeNamesFull.txt';
+import palabras from '!raw-loader!@pub/palabras.txt';
 import Modal from '@c/Modal'
 import ctes from '@a/js/ctes'
 import { useToast } from "vue-toastification"
 
-const fechaSubida = new Date('12/3/2022')
+const fechaSubida = new Date('12/2/2022')
 
 export default {
     name: 'MainPage',
@@ -97,11 +98,12 @@ export default {
     created() {
         let diffTime = Math.abs(new Date(new Date().toLocaleString("en-US", { timeZone: "America/Santiago" })) - fechaSubida)
         this.idActual = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1
-        let lineas = animeNamesFull.split("\n")
-        this.resp = lineas.find(linea => linea.split(",")[0] == this.idActual).split(",")
+        let ans = animeNamesFull.split("\n")
+        this.resp = ans.find(linea => linea.split(",")[0] == this.idActual).split(",")
+        let lineas = palabras.split("\n")
         for (let item in lineas)
         {
-            this.palabrasAdmitidas.push(lineas[item].split(",")[1])
+            this.palabrasAdmitidas.push(lineas[item])
         }
 
         window.addEventListener('keydown', (e) => { if(!e.altKey && !e.shiftKey && !e.ctrlKey) this.keyPressed(e.key) });
