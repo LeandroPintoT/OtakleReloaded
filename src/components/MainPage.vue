@@ -42,6 +42,8 @@
                     <b-col>
                         <h3>Character name was:</h3>
                         <h2><strong>{{ resp[2] }}</strong></h2>
+                        <h3>From anime:</h3>
+                        <h2><strong>{{ resp[3] }}</strong></h2>
                         <div class="div-timer">
                             <span>Next guess in:</span>
                             <div class="timer">
@@ -50,7 +52,7 @@
                         </div>
                     </b-col>
                     <b-col>
-                        <img id="imgPersonaje" :src="resp[3]">
+                        <img id="imgPersonaje" :src="resp[4]">
                     </b-col>
                 </b-row>
                 <br>
