@@ -33,7 +33,7 @@ Yuki
 Gyoru
 Alexis
 Monica
-Jouno
+Jono
 Miguno
 Kohei
 Silva
@@ -81,7 +81,7 @@ Hiraki
 Yukio
 Yellow
 Kusano
-Tarou
+Taro
 Kiki
 Mikami
 Gion
@@ -107,7 +107,7 @@ Emma
 Onoue
 Chouan
 Alone
-Koura
+Kora
 Satoko
 Asumu
 Izumi
@@ -169,7 +169,7 @@ Menini
 Gouda
 Ryouka
 Ayato
-Kouyou
+Koyo
 Tenji
 Miki
 Hibari
@@ -239,6 +239,7 @@ Somar
 Yuuki
 Shihai
 Ryouji
+Ryoji
 Riku
 Szeski
 Touji
@@ -4237,7 +4238,7 @@ Dozle
 World
 Smoke
 Jizou
-Gokuu
+Goku
 Hood
 Mong
 Kuze
@@ -5124,7 +5125,7 @@ Leech
 Winry
 Karli
 Nadeko
-Kourai
+Korai
 Takaki
 Rona
 Hugh
